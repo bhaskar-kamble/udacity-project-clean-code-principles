@@ -1,3 +1,10 @@
+"""
+Constants for churn_library.py and churn_script_logging_and_tests.py
+
+Author: Bhaskar Kamble
+Date: April 5, 2025
+"""
+
 keep_cols = ['Customer_Age', 'Dependent_count', 'Months_on_book',
             'Total_Relationship_Count', 'Months_Inactive_12_mon',
             'Contacts_Count_12_mon', 'Credit_Limit', 'Total_Revolving_Bal',

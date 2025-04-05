@@ -3,7 +3,8 @@ This file is part of the project submission for Udacity's course on Clean Coding
 
 It contains refactored code of churn data analysis adhering to clean coding principles.
 
-It carries out exploratory data analysis and fits machine learning models to predict when a customer is likely to churn.
+It carries out exploratory data analysis and fits machine learning models to predict 
+when a customer is likely to churn.
 
 Files and models are saved in 'images' and 'models' folders respectively.
 
@@ -12,8 +13,8 @@ This can be tested with churn_script_logging_and_tests.py.
 Author: Bhaskar Kamble
 Date: April 5, 2025
 """
-
 import os
+
 import joblib
 from sklearn.metrics import classification_report, RocCurveDisplay, roc_auc_score
 from sklearn.model_selection import GridSearchCV
@@ -24,11 +25,13 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-sns.set_theme()
+
 from constants import keep_cols, category_lst, input_file_path, response, \
     lr_model_path, rfc_model_path, use_saved_models
 
+
 os.environ['QT_QPA_PLATFORM'] = 'offscreen'
+sns.set_theme()
 
 
 def import_data(pth):
@@ -107,7 +110,7 @@ def encoder_helper(df, category_list, rspnse):
     input:
             df: pandas dataframe
             category_list: list of columns that contain categorical features
-            rspnse: string of response name [optional argument that could 
+            rspnse: string of response name [optional argument that could
                       be used for naming variables or index y column]
 
     output:
@@ -127,8 +130,8 @@ def perform_feature_engineering(df, rspnse):
     '''
     input:
               df: pandas dataframe
-              rspnse: string of response name 
-              [optional argument that could be used for 
+              rspnse: string of response name
+              [optional argument that could be used for
               naming variables or index y column]
 
     output:
@@ -141,9 +144,9 @@ def perform_feature_engineering(df, rspnse):
     X = pd.DataFrame()
     y = df[rspnse]
     X[keep_cols] = df[keep_cols]
-    X_train, X_test, y_train, y_test = train_test_split(
+    train_x, test_x, train_y, test_y = train_test_split(
         X, y, test_size=0.3, random_state=42)
-    return X_train, X_test, y_train, y_test
+    return train_x, test_x, train_y, test_y
 
 
 def classification_report_image(y_train,
@@ -195,7 +198,6 @@ def classification_report_image(y_train,
     plt.axis('off')
     plt.savefig("./images/results/logistic_results.png")
     plt.close()
-
 
 
 def feature_importance_plot(model, X_data, output_pth):
@@ -339,19 +341,19 @@ if __name__ == "__main__":
 
     if use_saved_models:
         lr_model = joblib.load(lr_model_path)
-        y_train_preds_lr = lr_model.predict(X_train)
-        y_test_preds_lr = lr_model.predict(X_test)
+        preds_train_lr = lr_model.predict(X_train)
+        preds_test_lr = lr_model.predict(X_test)
 
         rfc_model = joblib.load(rfc_model_path)
-        y_train_preds_rf = rfc_model.predict(X_train)
-        y_test_preds_rf = rfc_model.predict(X_test)
+        preds_train_rf = rfc_model.predict(X_train)
+        preds_test_rf = rfc_model.predict(X_test)
 
         classification_report_image(y_train,
                                     y_test,
-                                    y_train_preds_lr,
-                                    y_train_preds_rf,
-                                    y_test_preds_lr,
-                                    y_test_preds_rf)
+                                    preds_train_lr,
+                                    preds_train_rf,
+                                    preds_test_lr,
+                                    preds_test_rf)
 
         plot_both_roc_curves(lr_model, "LogisticRegression",
                              rfc_model, "RandomForest", X_test, y_test,

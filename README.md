@@ -1,7 +1,5 @@
 # Predict Customer Churn
 
-- Project **Predict Customer Churn** of ML DevOps Engineer Nanodegree Udacity
-
 ## Project Description
 This project submission is part of *Clean-Code-Principles*, the first course in Udacity's Nanodegree Program [*Machine Learning DevOps Engineer*](https://www.udacity.com/course/machine-learning-dev-ops-engineer-nanodegree--nd0821). The aim of the project is to apply best coding practices and clean-code-principles taught in the course such as refactoring, modularization, testing and logging, etc., on a machine learning task consisting of predicting customer churn.
 
@@ -11,7 +9,7 @@ The following is an overview of the files, folders and data present in the proje
 
 **Data:**
 
-* *./data/bank_data.csv*: churn data consisting of xx rows and xx columns.
+* *./data/bank_data.csv*: churn data consisting of 10,127 rows and 22 columns.
 
 **Requirements file:**
 
@@ -27,9 +25,9 @@ The following is an overview of the files, folders and data present in the proje
 
 **Output folders:**
 
-* logs: folder where churn_library.log produced by churn\_script_logging_and_tests.py is saved.
-* models: folder where the final models trained in churn\_library.py are saved.
-* images: folder where exploratory data analysis, and classification reports and ROC curves are saved. Contains two subfolders eda and results.
+* *logs*: folder where churn_library.log produced by churn\_script_logging_and_tests.py is saved.
+* *models*: folder where the final models trained in churn\_library.py are saved.
+* *images*: folder where exploratory data analysis, and classification reports and ROC curves are saved. Contains two subfolders eda and results.
 
 
 The project was executed on Python version 3.10.12, although other versions should also work. 
@@ -52,7 +50,7 @@ The project was executed on Python version 3.10.12, although other versions shou
 
 ## Running Files
 
-* **Running churn_library.py**
+**Running churn_library.py**
 
 *Important Note:* If you want to train the models from scratch, set `use_saved_models = False` in constants.py. If you want to load and use the models you have already saved, set `use_saved_models = True`.
 
@@ -60,12 +58,15 @@ For running churn\_library.py, type from the terminal in the project folder:
 
 `python churn_library.py`.
 
-This will load the data, carry out EDA and save images, train and select the models, and generate classification reports in the `images` folder.
+This will load the data, carry out EDA and save images, train and select the models, save the models, and generate classification reports in the `images` and `models` folder.
 
-* **Running churn_script_logging_and_tests.py**
+**Running churn_script_logging_and_tests.py**
 
+This files contains the tests for the input functions in churn_library.py. There are two options to run the tests in this file:
 
-* To run the tests, `python churn_script_logging_and_tests.py` from the CLI.
+* `python churn_script_logging_and_tests.py` from the terminal in the project folder. This will run the different tests in the script and save the log messages and errors, if any, in logs/churn_library.log.
+
+* `pytest python churn_script_logging_and_tests.py` from the terminal in the project folder. This will print a report of the tests that have passed or failed.
 
 
 
