@@ -14,7 +14,6 @@ Author: Bhaskar Kamble
 Date: April 5, 2025
 """
 import os
-
 import joblib
 from sklearn.metrics import classification_report, RocCurveDisplay, roc_auc_score
 from sklearn.model_selection import GridSearchCV
@@ -25,10 +24,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-
 from constants import keep_cols, category_lst, input_file_path, response, \
     lr_model_path, rfc_model_path, use_saved_models
-
 
 os.environ['QT_QPA_PLATFORM'] = 'offscreen'
 sns.set_theme()
@@ -244,7 +241,7 @@ def plot_both_roc_curves(
         target,
         filepath):
     """
-    PUT DOCUMENTATION HERE
+    helper function for plotting the roc curves for both classifiers considered
     """
     fig, ax = plt.subplots(figsize=(15, 8))
 

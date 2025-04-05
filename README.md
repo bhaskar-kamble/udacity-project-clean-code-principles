@@ -5,7 +5,6 @@ This project submission is part of *Clean-Code-Principles*, the first course in 
 
 ## Files and data description
 
-The following is an overview of the files, folders and data present in the project directory.
 
 **Data:**
 
@@ -62,7 +61,7 @@ This will load the data, carry out EDA and save images, train and select the mod
 
 **Running churn_script_logging_and_tests.py**
 
-This files contains the tests for the input functions in churn_library.py. There are two options to run the tests in this file:
+This file contains the unit tests for the input functions in churn_library.py. There are two options to run the tests in this file, one using the `python` command and one with `pytest`:
 
 * `python churn_script_logging_and_tests.py` from the terminal in the project folder. This will run the different tests in the script and save the log messages and errors, if any, in logs/churn_library.log.
 
