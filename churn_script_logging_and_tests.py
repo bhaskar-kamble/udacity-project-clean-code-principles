@@ -129,13 +129,16 @@ def test_perform_feature_engineering(dfinput):
 
 @pytest.fixture(scope="module")
 def train_test_data(dfinput):
+    """
+    returns train test split
+    """
     X_train, X_test, y_train, y_test = cls.perform_feature_engineering(
         dfinput, response)
-    train_test_dict = {"X_train": X_train,
-                       "X_test": X_test,
-                       "y_train": y_train,
-                       "y_test": y_test}
-    return train_test_dict
+    train_test_dict_ = {"X_train": X_train,
+                        "X_test": X_test,
+                        "y_train": y_train,
+                        "y_test": y_test}
+    return train_test_dict_
 
 
 def test_train_models(train_test_data):
@@ -154,6 +157,7 @@ def test_train_models(train_test_data):
     except AssertionError as err:
         logging.error(
             "ERROR in train_models: one or more models was not saved")
+        raise err
     except Exception as err:
         logging.error("ERROR in train_models")
         raise err
@@ -168,6 +172,7 @@ def test_train_models(train_test_data):
     except AssertionError as err:
         logging.error(
             "ERROR in train_models: one or more images was not saved")
+        raise err
 
 
 if __name__ == "__main__":
@@ -176,10 +181,10 @@ if __name__ == "__main__":
     test_eda(dfinput)
     test_encoder_helper(dfinput)
     test_perform_feature_engineering(dfinput)
-    X_train, X_test, y_train, y_test = cls.perform_feature_engineering(
+    Xtrain, Xtest, ytrain, ytest = cls.perform_feature_engineering(
         dfinput, response)
-    train_test_dict = {"X_train": X_train,
-                       "X_test": X_test,
-                       "y_train": y_train,
-                       "y_test": y_test}
+    train_test_dict = {"X_train": Xtrain,
+                       "X_test": Xtest,
+                       "y_train": ytrain,
+                       "y_test": ytest}
     test_train_models(train_test_dict)

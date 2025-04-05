@@ -66,7 +66,7 @@ This files contains the tests for the input functions in churn_library.py. There
 
 * `python churn_script_logging_and_tests.py` from the terminal in the project folder. This will run the different tests in the script and save the log messages and errors, if any, in logs/churn_library.log.
 
-* `pytest python churn_script_logging_and_tests.py` from the terminal in the project folder. This will print a report of the tests that have passed or failed.
+* `pytest churn_script_logging_and_tests.py` from the terminal in the project folder. This will print a report of the tests that have passed or failed.
 
 
 
