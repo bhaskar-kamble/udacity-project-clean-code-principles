@@ -1,15 +1,13 @@
 """
-Refactored code of churn data analysis adhering to 
-clean coding principles.
+This file is part of the project submission for Udacity's course on Clean Coding Principles.
 
-Part of project submission for Udacity's course on Clean Coding Principles.
+It contains refactored code of churn data analysis adhering to clean coding principles.
 
-The script carries out exploratory data analysis and 
-fits machine learning models to find out when a customer is likely to churn.
+It carries out exploratory data analysis and fits machine learning models to predict when a customer is likely to churn.
 
-Image files and models are saved in images and models folders respectively.
+Files and models are saved in 'images' and 'models' folders respectively.
 
-The code in this script is tested via churn_script_logging_and_tests.py.
+This can be tested with churn_script_logging_and_tests.py.
 
 Author: Bhaskar Kamble
 Date: April 5, 2025
@@ -285,14 +283,12 @@ def train_models(X_train, X_test, y_train, y_test):
     '''
 
     # logistic regression
-    print("fitting logistic regression")
     lrc = LogisticRegression(solver='newton-cholesky', max_iter=3000)  # lbfgs
     lrc.fit(X_train, y_train)
     y_train_preds_lr = lrc.predict(X_train)
     y_test_preds_lr = lrc.predict(X_test)
 
     # grid search for random forest
-    print("fitting grid search CV for random forest")
     rfc = RandomForestClassifier(random_state=42)
     # Use a different solver if the default 'lbfgs' fails to converge
     # Reference:

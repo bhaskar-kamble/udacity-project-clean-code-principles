@@ -1,6 +1,0 @@
-root - INFO - import_data: SUCCESS
-root - INFO - perform_eda: SUCCESS
-root - INFO - encoder_helper: SUCCESS
-root - INFO - perform_feature_engineering: SUCCESS
-root - INFO - train_models: models succesfully saved: SUCCESS
-root - INFO - train_models: images succesfully saved: SUCCESS

@@ -16,6 +16,6 @@ response = "Churn"
 lr_model_path = './models/logistic_model.pkl'
 rfc_model_path = './models/rfc_model.pkl'
 
-use_saved_models = True
+use_saved_models = False
 
 

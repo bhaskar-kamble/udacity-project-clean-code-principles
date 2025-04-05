@@ -1,5 +1,3 @@
-# From Guide.html:
-
 # This file should contain unit tests for the churn_library.py functions. 
 # You have to write test for each input function. 
 # Use the basic assert statements that test functions work properly. 
@@ -7,6 +5,9 @@
 # aren't empty or folders where results should land have 
 # results after the function has been run.
 
+"""
+This file contains unit tests for each input function in churn_library.py
+"""
 
 
 import os
